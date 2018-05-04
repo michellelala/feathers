@@ -1,0 +1,8 @@
+{
+  "name": "feathers",
+  "version": "9.8.0",
+  "scripts": {
+    "start": "cd backend && node ./bin/www",
+    "heroku-postbuild": "cd front-end && npm install --only=dev && npm install && npm run build"
+  }
+}
