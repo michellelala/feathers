@@ -1,5 +1,5 @@
 const pgp = require("pg-promise")({});
-const db = pgp(process.env.DATABASE_URL);
+const db = pgp("postgres://localhost/feathers");
 const authHelpers = require("../auth/helpers");
 const passport = require("../auth/local");
 

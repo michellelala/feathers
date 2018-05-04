@@ -1,7 +1,7 @@
--- DROP DATABASE IF EXISTS feathers;
--- CREATE DATABASE feathers;
+DROP DATABASE IF EXISTS feathers;
+CREATE DATABASE feathers;
 
--- \c feathers;
+\c feathers;
 
 
 DROP TABLE IF EXISTS users, bffs, flagged, trips, attributes, threads, messages, bucketlist;
