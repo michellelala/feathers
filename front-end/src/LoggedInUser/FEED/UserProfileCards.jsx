@@ -20,9 +20,8 @@ const UserProfileCards = ({ allUsers, bffs }) => {
             <div className="card-content">
               <div className="card-general">
                 <div className="name-age">
-                  <span className="blue">{user.first_name}</span>, {user.age}, <Link
-                    to={`/users/u/${user.username}/profile`}
-                  >
+                  <span className="blue">{user.first_name}</span>, {user.age}, 
+                  <Link to={`/users/u/${user.username}/profile`}>
                     @{user.username}
                   </Link>
                 </div>

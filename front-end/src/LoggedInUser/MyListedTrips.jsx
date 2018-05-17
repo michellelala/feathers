@@ -9,7 +9,6 @@ class MyListedTrips extends React.Component {
     console.log(this.props);
     this.state = {
       username: this.props.username,
-      //   trips: this.props.trips,
       activeUser: this.props.activeUser,
       isDeleted: false,
       trips: ""
@@ -19,16 +18,13 @@ class MyListedTrips extends React.Component {
   handleDeleteTrip = (e, id, username) => {
     e.preventDefault();
     const { isDeleted } = this.state;
-    console.log(id, username);
+
     axios.delete(`/users/removeTrip/${username}/${id}`).then(response => {
       this.getUserTrips();
-      //   window.location.reload();
     });
   };
 
   getUserTrips = () => {
-    console.log("getting user trips");
-    console.log("username", this.state.username);
     const { trips } = this.state;
     //getting the current Date;
     const dateNow = new Date();
@@ -72,7 +68,7 @@ class MyListedTrips extends React.Component {
                 )}
             </div>
           ))}
-          <div>
+          
             {activeUser
             ? (
               <div className="add-trip" onClick={this.props.handleClickAddTrip}>
@@ -80,12 +76,11 @@ class MyListedTrips extends React.Component {
                 <span className="plus">+</span>
               </div>
             ) : ""}
-          </div>
+          
         </div>
       );
-    }else{
-        return(<div>
-            </div> )
+    } else {
+        return <div></div>
     }
   }
 }

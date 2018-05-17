@@ -8,7 +8,7 @@ import "../Stylesheets/AddTrips.css";
 class GeneralListedTrips extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
+    
     this.state = {
       trips: this.props.trips,
     };

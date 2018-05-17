@@ -88,7 +88,7 @@ class NewUserSurvey extends React.Component {
       religion: "",
       submitted: false,
       USERLOGGED: this.props.active,
-      message: "Please fill out all inputs"
+      message: "Please completely fill out survey."
     };
   }
 
@@ -99,7 +99,6 @@ class NewUserSurvey extends React.Component {
   };
 
   renderSurvey = e => {
-    console.log("submitting survey");
     e.preventDefault();
     axios
       .post("/users/survey", {
@@ -186,7 +185,6 @@ class NewUserSurvey extends React.Component {
       drinks
     } = this.state;
     const { attributes, ethnicities, religions } = this;
-    console.log("NewUserSurvey", this.state);
     if (submitted) {
       return <Redirect to="/users/feed" />;
     }
@@ -228,7 +226,7 @@ class NewUserSurvey extends React.Component {
           Location:
           <br />
           <PlacesAutocomplete
-            id='location'
+            id="location"
             classNames={addressCSSClasses}
             inputProps={AddressInputProps}
           />
@@ -250,21 +248,20 @@ class NewUserSurvey extends React.Component {
             value={pic}
             onChange={this.handleInput}
           />
-          {/*  now we are going to start radio buttons here */}
           <br />
           <h4> What are you like on vacation?</h4>
           <div className="checkBoxes">
             {attributes.map(value => (
-                <span className="surveyCheck">
-                  <input
-                    type="checkbox"
-                    name={value}
-                    value={value}
-                    onChange={this.handleCheckBoxChange}
-                  />{" "}
-                  {value}
-                  <br />
-                </span>
+              <span className="surveyCheck">
+                <input
+                  type="checkbox"
+                  name={value}
+                  value={value}
+                  onChange={this.handleCheckBoxChange}
+                />{" "}
+                {value}
+                <br />
+              </span>
             ))}
           </div>
           <br />
@@ -278,7 +275,6 @@ class NewUserSurvey extends React.Component {
                   name="smokes"
                   value={value}
                   onChange={this.handleSmokes}
-                  // required="true"
                 />{" "}
                 {value}{" "}
               </span>
@@ -296,7 +292,6 @@ class NewUserSurvey extends React.Component {
                   name="drinks"
                   value={value}
                   onChange={this.handleDrinks}
-                  // required
                 />{" "}
                 {value}{" "}
               </span>

@@ -90,3 +90,20 @@
     margin: auto;
   
 }
+
+@media screen and (max-width: 470px) {
+    .single-trip {
+        overflow: scroll;
+        /* width: 30%; */
+        width: 100%;
+        border: 2px solid #CCC;
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        height: 350px;
+    }
+
+    .add-trip {
+        width: 100%;
+    }
+}

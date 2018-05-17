@@ -95,3 +95,10 @@
   /* color:white; */
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 480px) {
+  .add-Bucketlist-Div {
+    width: inherit;
+    padding: 0;
+  }
+}

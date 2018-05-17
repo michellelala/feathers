@@ -65,7 +65,8 @@ html {
 
 .card-general {
   text-align: center;
-  background: linear-gradient(to bottom, #F2F2F2, rgba(66, 163, 253, 0.253));
+  /* background: linear-gradient(to bottom, #F2F2F2, rgba(66, 163, 253, 0.253)); */
+  background-color: #F2F2F2;
 }
 /* .pic {
   height: 75%;
@@ -84,7 +85,8 @@ html {
 
 .card-trips {
   /* background-color: #DDD; */
-  background: linear-gradient(to top, #F2F2F2, rgba(66, 163, 253, 0.253));
+  /* background: linear-gradient(to top, #F2F2F2, rgba(66, 163, 253, 0.253)); */
+  background-color: #f2f2f2;
   overflow: scroll;
   height: 220px;
   padding: 5px;
@@ -102,4 +104,50 @@ html {
 }
 .card-trip-date {
   font-size: 0.9em;
+}
+
+/* ----- Media Queries ------ */
+@media screen and (max-width: 932px) {
+
+}
+
+@media screen and (max-width: 632px) {
+  
+}
+
+@media screen and (max-width: 480px) {
+  .cardHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+    width: 90%;
+    align-items: center;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: fit-content;
+    /* margin: 15px 5px 15px 5px; */
+    overflow: hidden;
+    padding: 0;
+  }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card img {
+    width: 300px;
+    height: 300px;
+    border-right: none;
+    border-bottom: 4px solid rgb(66, 163, 253);
+  }
+  .card-general {
+    text-align: left;
+  }
 }

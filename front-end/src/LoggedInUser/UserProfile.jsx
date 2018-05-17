@@ -23,14 +23,14 @@ class UserProfile extends React.Component {
       user: this.props.user,
       user_id: this.props.user.id,
       username: this.props.username,
-      activeUser:this.props.active,
+      activeUser: this.props.active,
       userImageURL: "",
       first_name: "",
       my_location: "",
       age: "",
       bio: "",
       ethnicity: "",
-      religion:'', 
+      religion: '',
       early_bird: "",
       night_owl: "",
       clubbing: "",
@@ -42,10 +42,10 @@ class UserProfile extends React.Component {
       nature: "",
       extroverted: "",
       smokes: "",
-      drinks: "", 
-      trips:'', 
-      openTrips:'', 
-      pastTrips:'', 
+      drinks: "",
+      trips: '',
+      openTrips: '',
+      pastTrips: '',
       // bucketListTodos:'', 
       // startDate: null,
       // endDate: null,
@@ -61,27 +61,27 @@ class UserProfile extends React.Component {
 
   fixUser = () => {
     console.log('im trying to fix the user!!!')
-    const {user, username, user_id}= this.state
-    if(!this.state.username){
+    const { user, username, user_id } = this.state
+    if (!this.state.username) {
       this.setState({
-        username:this.state.user
+        username: this.state.user
       })
     }
-    if(!this.state.user_id){
+    if (!this.state.user_id) {
       axios.get("/users/").then(response => {
         console.log('user id ', response.data.data)
-        const found=response.data.data.find(n => n.username === this.state.user.username)
+        const found = response.data.data.find(n => n.username === this.state.user.username)
         console.log(found)
-        if (found) 
-        this.setState({
-          user_id:found.id
-        })
-         
-    })
+        if (found)
+          this.setState({
+            user_id: found.id
+          })
+
+      })
     }
-  
-}
-  
+
+  }
+
 
   getUserInfo = () => {
     const { username, user } = this.state;
@@ -98,7 +98,7 @@ class UserProfile extends React.Component {
           age: UserInfo.age,
           bio: UserInfo.bio,
           ethnicity: UserInfo.ethnicity,
-          religion:UserInfo.religion, 
+          religion: UserInfo.religion,
           early_bird: UserInfo.early_bird,
           night_owl: UserInfo.night_owl,
           clubbing: UserInfo.clubbing,
@@ -110,8 +110,8 @@ class UserProfile extends React.Component {
           nature: UserInfo.nature,
           extroverted: UserInfo.extroverted,
           smokes: UserInfo.smokes,
-          drinks: UserInfo.drinks, 
-          bucketlist:'', 
+          drinks: UserInfo.drinks,
+          bucketlist: '',
         });
       })
       .catch(err => {
@@ -120,45 +120,45 @@ class UserProfile extends React.Component {
   };
 
 
-  getUserTrips=()=>{
-    const {trips}=this.state
-      //getting the current Date;
-      const dateNow= new Date()
+  getUserTrips = () => {
+    const { trips } = this.state
+    //getting the current Date;
+    const dateNow = new Date()
     axios
-    .get(`/users/allTrips/${this.state.username}`)
-    .then(res => {
-      let UserInfo = res.data;
-      this.setState({
-        trips:res.data, 
-      })
-     //have to create a date object bc its originally a string
-      // comparing date objects with date objects 
-      const pastTrips= this.state.trips.filter(trip=> new Date(trip.end_date)< dateNow)
-      const openTrips= this.state.trips.filter(trip=> new Date(trip.end_date)> dateNow)
-      this.setState({
-        pastTrips:pastTrips, 
-        openTrips:openTrips
-      })
-    });
+      .get(`/users/allTrips/${this.state.username}`)
+      .then(res => {
+        let UserInfo = res.data;
+        this.setState({
+          trips: res.data,
+        })
+        // have to create a date object bc its originally a string
+        // comparing date objects with date objects 
+        const pastTrips = this.state.trips.filter(trip => new Date(trip.end_date) < dateNow)
+        const openTrips = this.state.trips.filter(trip => new Date(trip.end_date) > dateNow)
+        this.setState({
+          pastTrips: pastTrips,
+          openTrips: openTrips
+        })
+      });
   };
 
-  getBucketList = ()=>{
-    console.log('hitting the bucket list!' )
-    const {username}= this.state
-    
+  getBucketList = () => {
+    console.log('hitting the bucket list!')
+    const { username } = this.state
+
     axios
-    .get(`/users/bucketlist/${username}`)
-    .then(res =>{
-      console.log('this is the response,', res.data)
-      this.setState({
-        bucketlist: res.data 
+      .get(`/users/bucketlist/${username}`)
+      .then(res => {
+        console.log('this is the response,', res.data)
+        this.setState({
+          bucketlist: res.data
+        })
+        console.log(
+          ' in the bucket list function ', this.state.bucketlist)
       })
-      console.log(
-      ' in the bucket list function ' , this.state.bucketlist)
-    })
-    .catch(err => {
-      console.log("err in getting bucketlist", err);
-    });
+      .catch(err => {
+        console.log("err in getting bucketlist", err);
+      });
   }
 
 
@@ -180,7 +180,7 @@ class UserProfile extends React.Component {
     return (window.location.href = `http://localhost:3000/users/me/${username}/trips/add`);
   };
 
- 
+
 
   render() {
     const {
@@ -205,9 +205,9 @@ class UserProfile extends React.Component {
       nature,
       extroverted,
       smokes,
-      drinks, 
-      trips, 
-      openTrips, 
+      drinks,
+      trips,
+      openTrips,
       pastTrips, bucketListTodos, startDate, endDate, address, bucketlist
     } = this.state;
 
@@ -221,7 +221,7 @@ class UserProfile extends React.Component {
       input: "search-input",
       autocompleteContainer: "autocomplete-container"
     };
-    
+
     return (
       <div className="userProfile">
         <div className="blurb">
@@ -237,7 +237,7 @@ class UserProfile extends React.Component {
             <div className="my-bio">{bio}</div>
           </div>
         </div>
-        
+
         <Tabs className="tabs">
           <TabList className="tab-list">
             <Tab className="single-tab">About</Tab>
@@ -248,7 +248,7 @@ class UserProfile extends React.Component {
           {/* About tab */}
           <TabPanel className="tab-panel">
             <div>
-              
+
               <div className="about-header">As a traveler...</div>
               <div className="attributes-container">
                 {this.state["early_bird"]
@@ -296,8 +296,8 @@ class UserProfile extends React.Component {
               <br />
               <div>
                 {activeUser ? <Link to={`/users/me/${username}/editprofile`}>
-                    <i className="far fa-edit fa-2x" />
-                  </Link> : ""}
+                  <i className="far fa-edit fa-2x" />
+                </Link> : ""}
               </div>
             </div>
           </TabPanel>
@@ -305,21 +305,19 @@ class UserProfile extends React.Component {
           {/* Trips tab */}
           <TabPanel className="tab-panel">
             <div>
-              {openTrips ? <MyListedTrips activeUser={activeUser} username={username} handleClickAddTrip={this.handleClickAddTrip} /> : ""}
-              {/* {activeUser
-                ? <div className="add-trip" onClick={this.handleClickAddTrip}>Add Trip</div>
-                : ""} */}
+              {openTrips ? 
+                <MyListedTrips activeUser={activeUser} username={username} handleClickAddTrip={this.handleClickAddTrip} />
+                : ""}
             </div>
           </TabPanel>
 
           {/* Bucketlist tab */}
           <TabPanel className="tab-panel">
             <div>
-           
-               <BucketList activeUser={activeUser} username={this.state.username}/> 
-                </div>
-            </TabPanel>
-            
+              <BucketList activeUser={activeUser} username={this.state.username} />
+            </div>
+          </TabPanel>
+
         </Tabs>
       </div>
     );

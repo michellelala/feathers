@@ -90,6 +90,7 @@ class LoginUser extends React.Component {
               onChange={this.handleInput}
               required
             />
+            <br />
             <input className="loginBtn" type="submit" value="Log in" />
           </form>
 

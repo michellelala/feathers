@@ -14,7 +14,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    width: 600px;
+    width: fit-content;
     margin: 20px auto;
 }
 
@@ -133,7 +133,7 @@
 /* ------ Media Queries ------ */
 @media screen and (max-width: 632px) {
     .blurb {
-    flex-direction: column;
+        flex-direction: column;
     }
     .attributes-true,
     .attributes-false {
@@ -152,6 +152,13 @@
   
   @media screen and (max-width: 480px) {
     .top-nav-bar-left img {
-    flex-direction: column;
+        flex-direction: column;
+    }
+    .general-info {
+        padding: 0;
+    }
+    .my-bio {
+        height: fit-content;
+        padding: 10px 0;
     }
   }
