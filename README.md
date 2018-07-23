@@ -1,7 +1,11 @@
+[Link to the original repo](https://github.com/michellelala/capstone)
+
 # feathers
 ### Drift together
 
 Our app aims to connect solo female travellers with one another so that they may both experience safe and happy travels.
+
+<img src="./front-end/src/Images/feathers-register.png" width="" />
 
 ### Features
 * Sign-up with our web app using a unique username and email
