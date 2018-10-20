@@ -1,4 +1,6 @@
-[Link to the original repo](https://github.com/michellelala/capstone)
+[Original repo](https://github.com/michellelala/capstone)
+
+[Live](http://feathersapp.herokuapp.com)
 
 # feathers
 ### Drift together
